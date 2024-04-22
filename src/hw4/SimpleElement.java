@@ -59,7 +59,7 @@ public class SimpleElement extends AbstractElement {
 
 	@Override
 	public void update() {
-
+		fps++;
 	}
 
 	@Override
@@ -79,17 +79,19 @@ public class SimpleElement extends AbstractElement {
 
 	@Override
 	public boolean collides(AbstractElement other) {
-		return false;
+		double otherx = other.getXReal();
+		double othery = other.getYReal();
+		return otherx == getXReal() || othery == getYReal() ? true : false;
 	}
 
 	@Override
 	public int getXInt() {
-		return (int)y;
+		return (int)x;
 	}
 
 	@Override
 	public int getYInt() {
-		return (int)x;
+		return (int)y;
 	}
 
 	@Override
