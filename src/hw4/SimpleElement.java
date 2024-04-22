@@ -14,7 +14,7 @@ import java.awt.*;
  * Minimal concrete extension of AbstractElement. The <code>update</code> method
  * in this implementation just increments the frame count.
  * 
- * @author YOUR NAME HERE
+Star * @author Arjava Tripathi
  */
 // TODO: This class must directly or indirectly extend AbstractElement
 public class SimpleElement extends AbstractElement {
