@@ -23,7 +23,6 @@ public class SimpleElement extends AbstractElement {
 	private int width;
 	private int height;
 	private boolean isDelete;
-
 	private int fps;
 
 	/**
@@ -105,7 +104,7 @@ public class SimpleElement extends AbstractElement {
 
 	@Override
 	public Rectangle getRect() {
-		return null;
+		return new Rectangle(getXInt(), getYInt(), getWidth(), getHeight());
 	}
 
 	// TODO: everything
