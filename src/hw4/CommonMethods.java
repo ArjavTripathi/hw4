@@ -4,7 +4,7 @@ import api.AbstractElement;
 
 import java.awt.*;
 
-public class CommonMethods extends SimpleElement {
+public abstract class CommonMethods extends AbstractElement {
     private double x;
     private double y;
     private int width;
@@ -12,7 +12,7 @@ public class CommonMethods extends SimpleElement {
     private int fps;
     private boolean isDeleted;
 
-    public Commonmethods(double x, double y, int width, int height){
+    public CommonMethods(double x, double y, int width, int height){
         this.x = x;
         this.y = y;
         this.width = width;
@@ -20,6 +20,13 @@ public class CommonMethods extends SimpleElement {
         this.fps = 0;
         this.isDeleted= false;
     }
+
+    @Override
+    public void setPosition(double newX, double newY) {
+        this.x = newX;
+        this.y = newY;
+    }
+
     @Override
     public double getXReal() {
         return x;
@@ -28,12 +35,6 @@ public class CommonMethods extends SimpleElement {
     @Override
     public double getYReal() {
         return y;
-    }
-
-
-    @Override
-    public int getFrameCount() {
-        return fps;
     }
 
     @Override
@@ -77,4 +78,12 @@ public class CommonMethods extends SimpleElement {
     public Rectangle getRect() {
         return new Rectangle(getXInt(), getYInt(), getWidth(), getHeight());
     }
+    public void IncrementFPS() {
+        fps++;
+    }
+    @Override
+    public int getFrameCount() {
+        return fps;
+    }
+
 }

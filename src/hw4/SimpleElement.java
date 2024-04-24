@@ -16,8 +16,7 @@ import java.awt.*;
  * 
 Star * @author Arjava Tripathi
  */
-// TODO: This class must directly or indirectly extend AbstractElement
-public class SimpleElement extends AbstractElement {
+public class SimpleElement extends CommonMethods{
 	private double x;
 	private double y;
 	private int width;
@@ -34,82 +33,15 @@ public class SimpleElement extends AbstractElement {
 	 * @param height element's height
 	 */
 	public SimpleElement(double x, double y, int width, int height) {
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
-		this.isDelete = false;
-		this.fps = 0;
-	}
-
-	@Override
-	public void setPosition(double newX, double newY) {
-		this.x = newX;
-		this.y = newY;
-	}
-
-	@Override
-	public double getXReal() {
-		return x;
-	}
-
-	@Override
-	public double getYReal() {
-		return y;
+		super(x, y, width, height);
 	}
 
 	@Override
 	public void update() {
-		fps++;
+		super.IncrementFPS();
 	}
 
-	@Override
-	public int getFrameCount() {
-		return fps;
-	}
 
-	@Override
-	public boolean isMarked() {
-		return isDelete;
-	}
 
-	@Override
-	public void markForDeletion() {
-		isDelete = true;
-	}
-
-	@Override
-	public boolean collides(AbstractElement other) {
-		Rectangle rect = other.getRect();
-		Rectangle curr = getRect();
-		return curr.intersects(rect);
-	}
-
-	@Override
-	public int getXInt() {
-		return (int)x;
-	}
-
-	@Override
-	public int getYInt() {
-		return (int)y;
-	}
-
-	@Override
-	public int getWidth() {
-		return width;
-	}
-
-	@Override
-	public int getHeight() {
-		return height;
-	}
-
-	@Override
-	public Rectangle getRect() {
-		return new Rectangle(getXInt(), getYInt(), getWidth(), getHeight());
-	}
-
-	// TODO: everything
 
 }
