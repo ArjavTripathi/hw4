@@ -55,13 +55,11 @@ public abstract class CommonMethods extends AbstractElement {
     }
 
     @Override
-    public int getXInt() {
-        return (int)x;
-    }
+    public int getXInt() { return (int) Math.round(x);}
 
     @Override
     public int getYInt() {
-        return (int)y;
+        return (int) Math.round(y);
     }
 
     @Override
