@@ -39,6 +39,7 @@ public class SimpleElement extends AbstractElement {
 		this.width = width;
 		this.height = height;
 		this.isDelete = false;
+		this.fps = 0;
 	}
 
 	@Override
@@ -79,9 +80,9 @@ public class SimpleElement extends AbstractElement {
 
 	@Override
 	public boolean collides(AbstractElement other) {
-		double otherx = other.getXReal();
-		double othery = other.getYReal();
-		return otherx == getXReal() || othery == getYReal() ? true : false;
+		Rectangle rect = other.getRect();
+		Rectangle curr = getRect();
+		return curr.intersects(rect);
 	}
 
 	@Override

@@ -1,0 +1,80 @@
+package hw4;
+
+import api.AbstractElement;
+
+import java.awt.*;
+
+public class CommonMethods extends SimpleElement {
+    private double x;
+    private double y;
+    private int width;
+    private int height;
+    private int fps;
+    private boolean isDeleted;
+
+    public Commonmethods(double x, double y, int width, int height){
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.fps = 0;
+        this.isDeleted= false;
+    }
+    @Override
+    public double getXReal() {
+        return x;
+    }
+
+    @Override
+    public double getYReal() {
+        return y;
+    }
+
+
+    @Override
+    public int getFrameCount() {
+        return fps;
+    }
+
+    @Override
+    public boolean isMarked() {
+        return isDeleted;
+    }
+
+    @Override
+    public void markForDeletion() {
+        isDeleted = true;
+    }
+
+    @Override
+    public boolean collides(AbstractElement other) {
+        Rectangle rect = other.getRect();
+        Rectangle curr = getRect();
+        return curr.intersects(rect);
+    }
+
+    @Override
+    public int getXInt() {
+        return (int)x;
+    }
+
+    @Override
+    public int getYInt() {
+        return (int)y;
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    @Override
+    public Rectangle getRect() {
+        return new Rectangle(getXInt(), getYInt(), getWidth(), getHeight());
+    }
+}

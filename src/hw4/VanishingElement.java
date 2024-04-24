@@ -88,7 +88,9 @@ public class VanishingElement extends AbstractElement {
 
 	@Override
 	public boolean collides(AbstractElement other) {
-		return false;
+		Rectangle rect = other.getRect();
+		Rectangle curr = getRect();
+		return curr.intersects(rect);
 	}
 
 	@Override
