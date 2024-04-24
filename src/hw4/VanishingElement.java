@@ -28,13 +28,17 @@ public class VanishingElement extends AbstractElement {
 	private int width;
 	private int height;
 	private int initialLife;
+	private int fps;
+	private boolean deletion;
 
 	public VanishingElement(double x, double y, int width, int height, int initialLife) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.initialLife = initialLife
+		this.initialLife = initialLife;
+		this.fps = 0;
+		this.deletion = false;
 	}
 
 	@Override
@@ -55,22 +59,31 @@ public class VanishingElement extends AbstractElement {
 
 	@Override
 	public void update() {
-
+		if(getInitialLife() == 0){
+			markForDeletion();
+		} else{
+			decrementInitialLife();
+		}
+		incrementFPS();
 	}
 
 	@Override
 	public int getFrameCount() {
-		return 0;
+		return fps;
 	}
 
 	@Override
 	public boolean isMarked() {
-		return false;
+		return deletion;
+	}
+
+	private void incrementFPS(){
+		fps++;
 	}
 
 	@Override
 	public void markForDeletion() {
-
+		deletion = true;
 	}
 
 	@Override
@@ -80,29 +93,35 @@ public class VanishingElement extends AbstractElement {
 
 	@Override
 	public int getXInt() {
-		return 0;
+		return (int)x;
 	}
 
 	@Override
 	public int getYInt() {
-		return 0;
+		return (int)y;
 	}
 
 	@Override
 	public int getWidth() {
-		return 0;
+		return width;
 	}
 
 	@Override
 	public int getHeight() {
-		return 0;
+		return height;
 	}
 
 	@Override
 	public Rectangle getRect() {
-		return null;
+		return new Rectangle(getXInt(), getYInt(), getWidth(), getHeight());
 	}
 
-	// TODO: everything
+	private int getInitialLife(){
+		return initialLife;
+	}
+
+	private void decrementInitialLife(){
+		initialLife--;
+	}
 
 }
