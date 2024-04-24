@@ -17,12 +17,6 @@ import java.awt.*;
 Star * @author Arjava Tripathi
  */
 public class SimpleElement extends CommonMethods{
-	private double x;
-	private double y;
-	private int width;
-	private int height;
-	private boolean isDelete;
-	private int fps;
 
 	/**
 	 * Constructs a new SimpleElement.
