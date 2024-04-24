@@ -6,14 +6,23 @@ package hw4;
 // with a couple of sentences explaining how you decided to organize
 // the class hierarchy for the elements.
 
+import api.AbstractElement;
+
+import java.awt.*;
+
 /**
  * Minimal concrete extension of AbstractElement. The <code>update</code> method
  * in this implementation just increments the frame count.
  * 
- * @author YOUR NAME HERE
+Star * @author Arjava Tripathi
  */
-// TODO: This class must directly or indirectly extend AbstractElement
-public class SimpleElement {
+public class SimpleElement extends CommonMethods{
+	private double x;
+	private double y;
+	private int width;
+	private int height;
+	private boolean isDelete;
+	private int fps;
 
 	/**
 	 * Constructs a new SimpleElement.
@@ -24,9 +33,15 @@ public class SimpleElement {
 	 * @param height element's height
 	 */
 	public SimpleElement(double x, double y, int width, int height) {
-		// TODO: everything
+		super(x, y, width, height);
 	}
 
-	// TODO: everything
+	@Override
+	public void update() {
+		super.IncrementFPS();
+	}
+
+
+
 
 }

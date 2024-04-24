@@ -1,13 +1,17 @@
 package hw4;
 
+import api.AbstractElement;
+
+import java.awt.*;
+
 /**
  * An element that does not move. Instead, it is intended to appear on the
  * screen for a fixed number of frames.
  * 
- * @author YOUR NAME HERE
+ * @author Arjava Tripathi
  */
 //TODO: This class must directly or indirectly extend AbstractElement
-public class VanishingElement {
+public class VanishingElement extends CommonMethods {
 
 	/**
 	 * Constructs a new VanishingElement.
@@ -19,10 +23,28 @@ public class VanishingElement {
 	 * @param initialLife the number of frames until this element marks itself for
 	 *                    deletion
 	 */
-	public VanishingElement(double x, double y, int width, int height, int initialLife) {
-		// TODO: everything
+	private int Life;
+
+	public VanishingElement(double x, double y, int width, int height, int Life) {
+		super(x, y, width, height);
+		this.Life = Life;
 	}
 
-	// TODO: everything
+	@Override
+	public void update() {
+		if(getLife() == 0){
+			super.markForDeletion();
+		} else{
+			decrementLife();
+		}
+		super.IncrementFPS();
+	}
+	private int getLife(){
+		return Life;
+	}
+
+	private void decrementLife(){
+		Life--;
+	}
 
 }
