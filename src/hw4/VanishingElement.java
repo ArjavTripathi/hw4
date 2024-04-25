@@ -32,14 +32,16 @@ public class VanishingElement extends CommonMethods {
 
 	@Override
 	public void update() {
-		if(getLife() == 0){
-			super.markForDeletion();
-		} else{
+		if(getLife() >0)
+		{
 			decrementLife();
+		}
+		if(getLife() <= 0){
+			super.markForDeletion();
 		}
 		super.IncrementFPS();
 	}
-	private int getLife(){
+	public int getLife(){
 		return Life;
 	}
 
