@@ -1,8 +1,6 @@
 package sample_tests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.gen5.api.Assertions.assertFalse;
-import static org.junit.gen5.api.Assertions.assertTrue;
 
 import hw4.VanishingElement;
 import org.junit.Assert;
