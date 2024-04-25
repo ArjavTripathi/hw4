@@ -1,5 +1,7 @@
 package hw4;
 
+import api.AbstractElement;
+
 /**
  * A PlatformElement is an element with two distinctive behaviors. First, it can
  * be set up to move horizontally within a fixed set of boundaries. On reaching
@@ -7,10 +9,9 @@ package hw4;
  * a list of <em>associated</em> elements whose basic motion all occurs relative
  * to the PlatformElement.
  * 
- * @author YOUR NAME HERE
+ * @author Arjava Tripathi
  */
-//TODO: This class must directly or indirectly extend AbstractElement
-public class PlatformElement {
+public class PlatformElement extends CommonMethods{
 
 	/**
 	 * Constructs a new PlatformElement. Initially the left and right boundaries are
@@ -22,10 +23,61 @@ public class PlatformElement {
 	 * @param width  object's width
 	 * @param height object's height
 	 */
-	public PlatformElement(double x, double y, int width, int height) {
-		// TODO: everything
-	}
-	
-	// TODO: everything
+	private double min;
+	private double max;
+	private double deltaX;
+	private double deltaY;
 
+	public PlatformElement(double x, double y, int width, int height) {
+		super(x, y, width, height);
+		this.min = 0;
+		this.max = 0;
+		this.deltaX = 0;
+		this.deltaY = 0;
+	}
+
+	@Override
+	public void update() {
+		super.IncrementFPS();
+
+	}
+	public void setVelocity(double deltaX, double deltaY){
+		this.deltaX = deltaX;
+		this.deltaY = deltaY;
+	}
+
+	public double getDeltaY(){return deltaY;}
+
+	public double getDeltaX(){
+		return deltaX;
+	}
+
+	public void setBounds(double min, double max){
+		this.min = min;
+		this.max = max;
+	}
+
+	public double getMin(){
+		return min;
+	}
+
+	public double getMax(){
+		return max;
+	}
+
+	public java.util.ArrayList<AbstractElement> getAssociated(){
+
+	}
+
+	public void deleteMarkedAssociated(){
+
+	}
+
+	public void addAssociated(FollowerElement follower){
+
+	}
+
+	public void addAssociated(AttachedElement attached){
+
+	}
 }
