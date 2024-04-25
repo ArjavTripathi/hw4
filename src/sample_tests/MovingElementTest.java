@@ -13,5 +13,6 @@ public class MovingElementTest {
         e.update();
         assertEquals(5, e.getXInt());
         assertEquals(5, e.getYInt());
+        assertEquals(2, e.getFrameCount());
     }
 }
