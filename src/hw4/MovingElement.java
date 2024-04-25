@@ -29,8 +29,8 @@ public class MovingElement extends CommonMethods {
 	}
 	@Override
 	public void update() {
-		double newX = super.getXReal() * getDeltaX();
-		double newY = super.getYReal() * getDeltaY();
+		double newX = super.getXReal() + getDeltaX();
+		double newY = super.getYReal() + getDeltaY();
 		super.setPosition(newX, newY);
 	}
 
