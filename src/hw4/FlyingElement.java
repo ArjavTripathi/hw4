@@ -38,10 +38,11 @@ public class FlyingElement extends CommonMethods {
 	@Override
 	public void update() {
 		super.IncrementFPS();
-		double newx = super.getXReal() + getDeltaX();
-		double newy = super.getYReal() + getDeltaY();
-		super.setPosition(newx, newy);
-
+		double newY = super.getYInt() + getDeltaY();
+		super.setPosition(super.getXReal(), newY);
+		if(!getGrounded()){
+			setVelocity(getDeltaX(), getDeltaY() + getGravity());
+		}
 	}
 
 	public void setVelocity(double deltaX, double deltaY){
@@ -65,13 +66,10 @@ public class FlyingElement extends CommonMethods {
 		return deltaX;
 	}
 
-	public double getDeltaY(){
-		if(getGrounded()){
-			return deltaY;
-		} else {
-			return deltaY + gravity;
-		}
-
+	public double getGravity(){
+		return gravity;
 	}
+
+	public double getDeltaY(){return deltaY;}
 
 }
