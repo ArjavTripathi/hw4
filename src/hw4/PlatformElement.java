@@ -39,7 +39,6 @@ public class PlatformElement extends CommonMethods{
 	@Override
 	public void update() {
 		super.IncrementFPS();
-
 	}
 	public void setVelocity(double deltaX, double deltaY){
 		this.deltaX = deltaX;
