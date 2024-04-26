@@ -9,7 +9,7 @@ package hw4;
  * @author YOUR NAME HERE
  */
 //TODO: This class must directly or indirectly extend AbstractElement
-public class AttachedElement {
+public class AttachedElement extends CommonMethods {
 
 	/**
 	 * Constructs a new AttachedElement. Before being added to an associated "base"
@@ -29,9 +29,14 @@ public class AttachedElement {
 	 *               the hover amount
 	 */
 	public AttachedElement(int width, int height, int offset, int hover) {
-		// TODO: everything
+		super(1, 1, 1, 1);
 	}
-	
+
+	@Override
+	public void update() {
+
+	}
+
 	// TODO: everything
 
 }

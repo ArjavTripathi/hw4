@@ -76,9 +76,7 @@ public abstract class CommonMethods extends AbstractElement {
     public Rectangle getRect() {
         return new Rectangle(getXInt(), getYInt(), getWidth(), getHeight());
     }
-    public void IncrementFPS() {
-        fps++;
-    }
+    public void IncrementFPS() {fps++;}
     @Override
     public int getFrameCount() {
         return fps;

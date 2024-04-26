@@ -2,6 +2,8 @@ package hw4;
 
 import api.AbstractElement;
 
+import java.util.ArrayList;
+
 /**
  * A PlatformElement is an element with two distinctive behaviors. First, it can
  * be set up to move horizontally within a fixed set of boundaries. On reaching
@@ -27,6 +29,8 @@ public class PlatformElement extends CommonMethods{
 	private double max;
 	private double deltaX;
 	private double deltaY;
+	private ArrayList<AbstractElement> elements;
+	private boolean flag;
 
 	public PlatformElement(double x, double y, int width, int height) {
 		super(x, y, width, height);
@@ -34,11 +38,21 @@ public class PlatformElement extends CommonMethods{
 		this.max = 0;
 		this.deltaX = 0;
 		this.deltaY = 0;
+		this.elements = new ArrayList<>();
+		this.flag = false;
 	}
 
 	@Override
 	public void update() {
 		super.IncrementFPS();
+		double newX = super.getXReal();
+		if(newX == max){
+			flag = true;
+		} else if(newX == min){
+			flag = false;
+		}
+		newX += flag ? -getDeltaX() : + getDeltaX();
+		super.setPosition(newX, super.getYReal());
 	}
 	public void setVelocity(double deltaX, double deltaY){
 		this.deltaX = deltaX;
@@ -65,18 +79,22 @@ public class PlatformElement extends CommonMethods{
 	}
 
 	public java.util.ArrayList<AbstractElement> getAssociated(){
-
+		return elements;
 	}
 
 	public void deleteMarkedAssociated(){
-
+		for(AbstractElement e : this.elements){
+			if(e.isMarked()){
+				elements.remove(e);
+			}
+		}
 	}
 
 	public void addAssociated(FollowerElement follower){
-
+		elements.add(follower);
 	}
 
 	public void addAssociated(AttachedElement attached){
-
+		elements.add(attached);
 	}
 }

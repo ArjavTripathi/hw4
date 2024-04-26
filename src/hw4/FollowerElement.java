@@ -13,7 +13,7 @@ package hw4;
  * @author YOUR NAME HERE
  */
 //TODO: This class must directly or indirectly extend AbstractElement
-public class FollowerElement {
+public class FollowerElement extends CommonMethods {
 
 	/**
 	 * Constructs a new FollowerElement. Before being added to a "base" element such
@@ -29,7 +29,12 @@ public class FollowerElement {
 	 *                      x-coordinate
 	 */
 	public FollowerElement(int width, int height, int initialOffset) {
-		// TODO: everything
+		super(5, 5, 5, 5);
+	}
+
+	@Override
+	public void update() {
+
 	}
 
 	// TODO: everything
