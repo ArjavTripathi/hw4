@@ -45,7 +45,11 @@ public class PlatformElement extends CommonMethods{
 	@Override
 	public void update() {
 		super.update();
-		double newX = super.getXReal() + getDeltaX();
+		double x = super.getXReal();
+		double newX = getXReal() + getDeltaX();
+		if(newX + getWidth() >= getMax()){
+			newX = getMax() - getWidth();
+		}
 		super.setPosition(newX, super.getYReal());
 	}
 	public void setVelocity(double deltaX, double deltaY){
@@ -56,8 +60,11 @@ public class PlatformElement extends CommonMethods{
 	public double getDeltaY(){return deltaY;}
 
 	public double getDeltaX(){
-		return deltaX;
-
+		if(getXReal() + getWidth() >= getMax()){
+			return -deltaX;
+		} else{
+			return deltaX;
+		}
 	}
 
 	public void setBounds(double min, double max){
