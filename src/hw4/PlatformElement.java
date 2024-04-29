@@ -61,7 +61,12 @@ public class PlatformElement extends CommonMethods{
 
 	public double getDeltaX(){
 		if(getXReal() + getWidth() >= getMax()){
-			return -deltaX;
+			flag = true;
+		} else if (getXReal() <= getMin()){
+			flag = false;
+		}
+		if(flag){
+			return deltaX * -1;
 		} else{
 			return deltaX;
 		}
