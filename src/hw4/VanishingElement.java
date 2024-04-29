@@ -39,7 +39,7 @@ public class VanishingElement extends CommonMethods {
 		if(getLife() <= 0){
 			super.markForDeletion();
 		}
-		super.IncrementFPS();
+		super.update();
 	}
 	public int getLife(){
 		return Life;

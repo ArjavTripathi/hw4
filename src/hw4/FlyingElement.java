@@ -37,7 +37,7 @@ public class FlyingElement extends CommonMethods {
 
 	@Override
 	public void update() {
-		super.IncrementFPS();
+		super.update();
 		double newY = super.getYInt() + getDeltaY();
 		super.setPosition(super.getXReal(), newY);
 		if(!getGrounded()){

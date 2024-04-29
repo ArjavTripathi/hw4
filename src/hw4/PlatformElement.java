@@ -44,14 +44,8 @@ public class PlatformElement extends CommonMethods{
 
 	@Override
 	public void update() {
-		super.IncrementFPS();
-		double newX = super.getXReal();
-		if(newX == max){
-			flag = true;
-		} else if(newX == min){
-			flag = false;
-		}
-		newX += flag ? -getDeltaX() : + getDeltaX();
+		super.update();
+		double newX = super.getXReal() + getDeltaX();
 		super.setPosition(newX, super.getYReal());
 	}
 	public void setVelocity(double deltaX, double deltaY){
@@ -63,6 +57,7 @@ public class PlatformElement extends CommonMethods{
 
 	public double getDeltaX(){
 		return deltaX;
+
 	}
 
 	public void setBounds(double min, double max){

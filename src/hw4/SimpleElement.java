@@ -32,7 +32,7 @@ public class SimpleElement extends CommonMethods{
 
 	@Override
 	public void update() {
-		super.IncrementFPS();
+		super.update();
 	}
 
 

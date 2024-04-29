@@ -32,7 +32,7 @@ public class MovingElement extends CommonMethods {
 		double newX = super.getXReal() + getDeltaX();
 		double newY = super.getYReal() + getDeltaY();
 		super.setPosition(newX, newY);
-		super.IncrementFPS();
+		super.update();
 	}
 
 	public void setVelocity(double dx, double dy){
