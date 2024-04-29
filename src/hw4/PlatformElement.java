@@ -50,6 +50,9 @@ public class PlatformElement extends CommonMethods{
 		if(newX + getWidth() >= getMax()){
 			newX = getMax() - getWidth();
 		}
+		if(newX < getMin()){
+			newX = getMin();
+		}
 		super.setPosition(newX, super.getYReal());
 	}
 	public void setVelocity(double deltaX, double deltaY){
