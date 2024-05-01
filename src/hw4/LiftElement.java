@@ -44,6 +44,31 @@ public class LiftElement extends CommonMethods {
 	@Override
 	public void update(){
 		super.update();
+		double newY = getYReal() + getDeltaY();
+		if(newY + getHeight() <= getMin()){
+			newY = getMin() - getHeight();
+		}
+		if(newY > getMax()){
+			newY = getMax();
+		}
+		super.setPosition(getXReal(), newY);
+		java.util.ArrayList<AbstractElement> e = getAssociated();
+		for(AbstractElement ele: e){
+			ele.update();
+		}
+	}
+
+	public double getDeltaY(){
+		if(getYReal() + getHeight() <= getMin()){
+			flag = false;
+		} else if (getYReal() >= getMax()){
+			flag = true;
+		}
+		if(flag){
+			return deltaY * -1;
+		} else{
+			return deltaY;
+		}
 	}
 
 	public void setVelocity(double deltaX, double deltaY){
