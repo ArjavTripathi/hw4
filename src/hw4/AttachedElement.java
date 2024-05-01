@@ -1,5 +1,7 @@
 package hw4;
 
+import api.AbstractElement;
+
 /**
  * An attached element is one that is associated with another "base" element
  * such as a PlatformElement or a LiftElement. Specifically, the attached
@@ -10,7 +12,9 @@ package hw4;
  */
 //TODO: This class must directly or indirectly extend AbstractElement
 public class AttachedElement extends CommonMethods {
-
+	private int offset;
+	private int hover;
+	private AbstractElement base;
 	/**
 	 * Constructs a new AttachedElement. Before being added to an associated "base"
 	 * element such as a PlatformElement or LiftElement, the x and y coordinates are
@@ -29,12 +33,23 @@ public class AttachedElement extends CommonMethods {
 	 *               the hover amount
 	 */
 	public AttachedElement(int width, int height, int offset, int hover) {
-		super(1, 1, 1, 1);
+		super(0, 0, width, height);
+		this.offset = offset;
+		this.hover = hover;
 	}
 
 	@Override
 	public void update() {
+		super.update();
+		double x = base.getXReal();
+		double y = base.getYReal();
+		if(x + base.getWidth() >= )
+		super.setPosition(x + offset, y - getHeight() - hover);
+	}
 
+	public void setBase(AbstractElement b){
+		base = b;
+		super.setPosition(base.getXReal() + offset, base.getYReal() - getHeight() - hover);
 	}
 
 	// TODO: everything

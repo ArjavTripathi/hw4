@@ -54,6 +54,10 @@ public class PlatformElement extends CommonMethods{
 			newX = getMin();
 		}
 		super.setPosition(newX, super.getYReal());
+		java.util.ArrayList<AbstractElement> e = getAssociated();
+		for(AbstractElement ele: e){
+			ele.update();
+		}
 	}
 	public void setVelocity(double deltaX, double deltaY){
 		this.deltaX = deltaX;
@@ -105,6 +109,7 @@ public class PlatformElement extends CommonMethods{
 	}
 
 	public void addAssociated(AttachedElement attached){
+		attached.setBase(this);
 		elements.add(attached);
 	}
 }
