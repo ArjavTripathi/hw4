@@ -34,8 +34,6 @@ public class PlatformElement extends CommonMethods{
 
 	public PlatformElement(double x, double y, int width, int height) {
 		super(x, y, width, height, 0, 0);
-		this.min = 0;
-		this.max = 0;
 		this.deltaX = 0;
 		this.deltaY = 0;
 		this.elements = new ArrayList<>();
