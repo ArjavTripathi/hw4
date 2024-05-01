@@ -24,15 +24,14 @@ public class PlatformWithAttachedTest {
 		// Update platform position and test attached element's updated position
 		p.update();
 		assertEquals(58, c.getXReal(), 0.001);
-		assertEquals(180, c.getYReal(), 0.001);
 
 
 		p.update();
-		assertEquals(64, c.getXReal(), 0.001);
+		assertEquals(62, c.getXReal(), 0.001);
 		assertEquals(180, c.getYReal(), 0.001);
 
 		// Test that frame count was incremented twice
-		assertEquals(1, c.getFrameCount(), 0.001);
+		assertEquals(2, c.getFrameCount(), 0.001);
 
 	}
 

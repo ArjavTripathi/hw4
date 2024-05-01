@@ -41,17 +41,16 @@ public class AttachedElement extends CommonMethods {
 	@Override
 	public void update() {
 		super.update();
-		double x = base.getXReal();
-		double y = base.getYReal();
-		if(x + base.getWidth() >= base.getMax()){
-			System.out.println("h");
-		}
-		super.setPosition(x + offset, y - getHeight() - hover);
+		newPos(base.getXReal() + offset, base.getYReal() - getHeight() - hover);
 	}
 
 	public void setBase(AbstractElement b){
 		base = b;
-		super.setPosition(base.getXReal() + offset, base.getYReal() - getHeight() - hover);
+		newPos(base.getXReal() + offset, base.getYReal() - getHeight() - hover);
+	}
+
+	public void newPos(double x, double y){
+		setPosition(x, y);
 	}
 
 	// TODO: everything
