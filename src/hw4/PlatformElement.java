@@ -43,7 +43,6 @@ public class PlatformElement extends CommonMethods{
 	@Override
 	public void update() {
 		super.update();
-		double x = getXReal();
 		double newX = getXReal() + getDeltaX();
 		if(newX + getWidth() >= getMax()){
 			newX = getMax() - getWidth();
@@ -61,8 +60,6 @@ public class PlatformElement extends CommonMethods{
 		this.deltaX = deltaX;
 		this.deltaY = deltaY;
 	}
-
-	public double getDeltaY(){return deltaY;}
 
 	public double getDeltaX(){
 		if(getXReal() + getWidth() >= getMax()){
