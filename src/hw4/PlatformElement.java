@@ -33,7 +33,7 @@ public class PlatformElement extends CommonMethods{
 	private boolean flag;
 
 	public PlatformElement(double x, double y, int width, int height) {
-		super(x, y, width, height);
+		super(x, y, width, height, 0, 0);
 		this.min = 0;
 		this.max = 0;
 		this.deltaX = 0;
@@ -45,7 +45,7 @@ public class PlatformElement extends CommonMethods{
 	@Override
 	public void update() {
 		super.update();
-		double x = super.getXReal();
+		double x = getXReal();
 		double newX = getXReal() + getDeltaX();
 		if(newX + getWidth() >= getMax()){
 			newX = getMax() - getWidth();
@@ -53,7 +53,7 @@ public class PlatformElement extends CommonMethods{
 		if(newX < getMin()){
 			newX = getMin();
 		}
-		super.setPosition(newX, super.getYReal());
+		super.setPosition(newX, getYReal());
 		java.util.ArrayList<AbstractElement> e = getAssociated();
 		for(AbstractElement ele: e){
 			ele.update();
@@ -80,16 +80,8 @@ public class PlatformElement extends CommonMethods{
 	}
 
 	public void setBounds(double min, double max){
-		this.min = min;
-		this.max = max;
-	}
-
-	public double getMin(){
-		return min;
-	}
-
-	public double getMax(){
-		return max;
+		setMin(min);
+		setMax(max);
 	}
 
 	public java.util.ArrayList<AbstractElement> getAssociated(){

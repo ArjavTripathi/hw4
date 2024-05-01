@@ -43,7 +43,9 @@ public class AttachedElement extends CommonMethods {
 		super.update();
 		double x = base.getXReal();
 		double y = base.getYReal();
-		if(x + base.getWidth() >= )
+		if(x + base.getWidth() >= base.getMax()){
+			System.out.println("h");
+		}
 		super.setPosition(x + offset, y - getHeight() - hover);
 	}
 

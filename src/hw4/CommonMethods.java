@@ -11,6 +11,19 @@ public abstract class CommonMethods extends AbstractElement {
     private int height;
     private int fps;
     private boolean isDeleted;
+    private double max;
+    private double min;
+
+    public CommonMethods(double x, double y, int width, int height, double max, double min){
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.fps = 0;
+        this.isDeleted= false;
+        this.max = max;
+        this.min = min;
+    }
 
     public CommonMethods(double x, double y, int width, int height){
         this.x = x;
@@ -19,6 +32,8 @@ public abstract class CommonMethods extends AbstractElement {
         this.height = height;
         this.fps = 0;
         this.isDeleted= false;
+        this.max = 0;
+        this.min = 0;
     }
 
     @Override
@@ -84,6 +99,22 @@ public abstract class CommonMethods extends AbstractElement {
     @Override
     public void update(){
         fps++;
+    }
+
+    public double getMin(){
+        return min;
+    }
+
+    public double getMax(){
+        return max;
+    }
+
+    protected void setMax(double max){
+        this.max = max;
+    }
+
+    protected void setMin(double min){
+        this.min = min;
     }
 
 }
