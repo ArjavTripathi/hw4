@@ -92,6 +92,7 @@ public class PlatformElement extends CommonMethods{
 	}
 
 	public void addAssociated(FollowerElement follower){
+		follower.setBase(this);
 		elements.add(follower);
 	}
 

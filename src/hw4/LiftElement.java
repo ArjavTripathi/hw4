@@ -85,6 +85,7 @@ public class LiftElement extends CommonMethods {
 	}
 
 	public void addAssociated(FollowerElement follower){
+		follower.setBase(this);
 		elements.add(follower);
 	}
 

@@ -1,5 +1,7 @@
 package hw4;
 
+import api.AbstractElement;
+
 /**
  * A follower element is one that is associated with another "base" element such
  * as a PlatformElement or LiftElement. Specifically, the follower element's
@@ -28,8 +30,15 @@ public class FollowerElement extends CommonMethods {
 	 *                      bases's x-coordinate to calculate this element's initial
 	 *                      x-coordinate
 	 */
+	private int initialOffset;
+	private double deltaX;
+	private double deltaY;
+
+	private AbstractElement base;
+
 	public FollowerElement(int width, int height, int initialOffset) {
-		super(5, 5, 5, 5);
+		super(5, 5, 5, 5, 0, 0);
+		this.initialOffset = initialOffset;
 	}
 
 	@Override
@@ -37,6 +46,21 @@ public class FollowerElement extends CommonMethods {
 
 	}
 
-	// TODO: everything
+	public void setBounds(double min, double max){
+		setMin(min);
+		setMax(max);
+	}
+
+	public double getDeltaX(){
+		return deltaX;
+	}
+
+	public double getDeltaY(){
+		return deltaY;
+	}
+
+	public void setBase(AbstractElement b){
+		base = b;
+	}
 
 }
