@@ -18,8 +18,6 @@ public class LiftElement extends CommonMethods {
 
 	private ArrayList<AbstractElement> elements;
 
-	private double deltaX;
-	private double deltaY;
 	private boolean flag;
 
 
@@ -37,8 +35,6 @@ public class LiftElement extends CommonMethods {
 		super(x, y, width, height);
 		this.elements = new ArrayList<>();
 		this.flag = false;
-		this.deltaX = 0;
-		this.deltaY = 0;
 	}
 
 	@Override
@@ -51,13 +47,13 @@ public class LiftElement extends CommonMethods {
 		if(newY > getMax()){
 			newY = getMax();
 		}
-		super.setPosition(getXReal(), newY);
+		setPosition(getXReal(), newY);
 		java.util.ArrayList<AbstractElement> e = getAssociated();
 		for(AbstractElement ele: e){
 			ele.update();
 		}
 	}
-
+	@Override
 	public double getDeltaY(){
 		if(getYReal() + getHeight() <= getMin()){
 			flag = false;
@@ -65,19 +61,10 @@ public class LiftElement extends CommonMethods {
 			flag = true;
 		}
 		if(flag){
-			return deltaY * -1;
+			return super.getDeltaY() * -1;
 		} else{
-			return deltaY;
+			return super.getDeltaY();
 		}
-	}
-
-	public void setVelocity(double deltaX, double deltaY){
-		this.deltaX = deltaX;
-		this.deltaY = deltaY;
-	}
-	public void setBounds(double min, double max){
-		setMin(min);
-		setMax(max);
 	}
 
 	public java.util.ArrayList<AbstractElement> getAssociated(){

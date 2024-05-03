@@ -13,6 +13,8 @@ public abstract class CommonMethods extends AbstractElement {
     private boolean isDeleted;
     private double max;
     private double min;
+    private double deltaX;
+    private double deltaY;
 
     public CommonMethods(double x, double y, int width, int height, double max, double min){
         this.x = x;
@@ -23,6 +25,8 @@ public abstract class CommonMethods extends AbstractElement {
         this.isDeleted= false;
         this.max = max;
         this.min = min;
+        this.deltaX = 0;
+        this.deltaY = 0;
     }
 
     public CommonMethods(double x, double y, int width, int height){
@@ -117,4 +121,23 @@ public abstract class CommonMethods extends AbstractElement {
         this.min = min;
     }
 
+    public void setBounds(double min, double max){
+        setMin(min);
+        setMax(max);
+    }
+
+    public void setVelocity(double dx, double dy){
+        deltaX = dx;
+        deltaY = dy;
+    }
+
+    public double getDeltaX(){
+        return deltaX;
+    }
+
+    public double getDeltaY(){
+        return deltaY;
+    }
 }
+
+

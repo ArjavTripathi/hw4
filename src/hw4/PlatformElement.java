@@ -34,8 +34,6 @@ public class PlatformElement extends CommonMethods{
 
 	public PlatformElement(double x, double y, int width, int height) {
 		super(x, y, width, height, 0, 0);
-		this.deltaX = 0;
-		this.deltaY = 0;
 		this.elements = new ArrayList<>();
 		this.flag = false;
 	}
@@ -50,17 +48,14 @@ public class PlatformElement extends CommonMethods{
 		if(newX < getMin()){
 			newX = getMin();
 		}
-		super.setPosition(newX, getYReal());
+		setPosition(newX, getYReal());
 		java.util.ArrayList<AbstractElement> e = getAssociated();
 		for(AbstractElement ele: e){
 			ele.update();
 		}
 	}
-	public void setVelocity(double deltaX, double deltaY){
-		this.deltaX = deltaX;
-		this.deltaY = deltaY;
-	}
 
+	@Override
 	public double getDeltaX(){
 		if(getXReal() + getWidth() >= getMax()){
 			flag = true;
@@ -68,15 +63,10 @@ public class PlatformElement extends CommonMethods{
 			flag = false;
 		}
 		if(flag){
-			return deltaX * -1;
+			return super.getDeltaX() * -1;
 		} else{
-			return deltaX;
+			return super.getDeltaX();
 		}
-	}
-
-	public void setBounds(double min, double max){
-		setMin(min);
-		setMax(max);
 	}
 
 	public java.util.ArrayList<AbstractElement> getAssociated(){
