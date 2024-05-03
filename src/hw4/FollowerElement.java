@@ -12,7 +12,7 @@ import api.AbstractElement;
  * oscillate between the left and right edges of the PlatformElement or
  * LiftElement it is associated with.
  * 
- * @author YOUR NAME HERE
+ * @author Arjava Tripathi
  */
 //TODO: This class must directly or indirectly extend AbstractElement
 public class FollowerElement extends CommonMethods {
@@ -30,37 +30,37 @@ public class FollowerElement extends CommonMethods {
 	 *                      bases's x-coordinate to calculate this element's initial
 	 *                      x-coordinate
 	 */
-	private int initialOffset;
-	private double deltaX;
-	private double deltaY;
-
+	private boolean flag;
 	private AbstractElement base;
+	private int initialOffset;
 
 	public FollowerElement(int width, int height, int initialOffset) {
-		super(5, 5, 5, 5, 0, 0);
+		super(0, 0, width, height);
+		this.flag = false;
 		this.initialOffset = initialOffset;
 	}
 
 	@Override
 	public void update() {
-
-	}
-
-	public void setBounds(double min, double max){
-		setMin(min);
-		setMax(max);
-	}
-
-	public double getDeltaX(){
-		return deltaX;
-	}
-
-	public double getDeltaY(){
-		return deltaY;
+		super.update();
+		setBounds(base.getXReal(), base.getXReal() + base.getWidth());
+		if(getDeltaX() != 0){
+			if(getXReal() <= getMin()){
+				flag = true;
+			} else if(getXReal() + getWidth() >= getMax()){
+				flag = false;
+			}
+		}
+		if(flag){
+			setPosition(getXReal() + getDeltaX(), base.getYReal() + getHeight());
+		} else if(!flag){
+			setPosition(getXReal() - getDeltaX(),base.getYReal() + getHeight());
+		}
 	}
 
 	public void setBase(AbstractElement b){
 		base = b;
+		setPosition(base.getXReal() + initialOffset, base.getYReal() + getHeight());
 	}
 
 }
