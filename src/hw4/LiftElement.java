@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * <em>associated</em> elements whose basic motion all occurs relative to the
  * LiftElement.
  * 
- * @author YOUR NAME HERE
+ * @author Arjava Tripathi
  */
 //TODO: This class must directly or indirectly extend AbstractElement
 public class LiftElement extends CommonMethods {

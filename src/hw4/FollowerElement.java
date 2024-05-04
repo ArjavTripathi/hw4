@@ -34,9 +34,12 @@ public class FollowerElement extends CommonMethods {
 	private AbstractElement base;
 	private int initialOffset;
 
+	private double previousX;
+	private int count;
+
 	public FollowerElement(int width, int height, int initialOffset) {
 		super(0, 0, width, height);
-		this.flag = false;
+		this.flag = true;
 		this.initialOffset = initialOffset;
 	}
 
@@ -44,23 +47,35 @@ public class FollowerElement extends CommonMethods {
 	public void update() {
 		super.update();
 		setBounds(base.getXReal(), base.getXReal() + base.getWidth());
-		if(getDeltaX() != 0){
-			if(getXReal() <= getMin()){
-				flag = true;
-			} else if(getXReal() + getWidth() >= getMax()){
-				flag = false;
-			}
+		double newX = getXReal() + getDeltaX();
+		if(newX + getWidth() >= getMax()){
+			newX = getMax() - getWidth();
+		}
+		if(newX < getMin()){
+			newX = getMin() + initialOffset;
+		}
+		setPosition(newX, base.getYReal() - getHeight());
+	}
+
+	@Override
+	public double getDeltaX(){
+		if(getXReal()  <= getMin()){
+			flag = true;
+		} else if(getXReal() + getWidth() >= getMax()){
+			flag = false;
 		}
 		if(flag){
-			setPosition(getXReal() + getDeltaX(), base.getYReal() + getHeight());
-		} else if(!flag){
-			setPosition(getXReal() - getDeltaX(),base.getYReal() + getHeight());
+			return super.getDeltaX();
+		} else{
+			return super.getDeltaX() * -1;
 		}
 	}
 
 	public void setBase(AbstractElement b){
 		base = b;
-		setPosition(base.getXReal() + initialOffset, base.getYReal() + getHeight());
+		setPosition(base.getXReal() + initialOffset, base.getYReal() - getHeight());
+		setBounds(base.getXReal(), base.getXReal() + base.getWidth());
+		previousX = base.getXReal();
 	}
 
 }

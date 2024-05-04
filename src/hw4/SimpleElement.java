@@ -1,14 +1,10 @@
 package hw4;
 
-// TODO:
-// Special documentation requirement: (see page 11 of documentation)
-// you must add a comment to the top of the SimpleElement class
-// with a couple of sentences explaining how you decided to organize
-// the class hierarchy for the elements.
-
-import api.AbstractElement;
-
-import java.awt.*;
+/**
+ * Class hierarchy works the following way:
+ * CommonMethods class extends AbstractElement class. This method also contains methods that is used in more than one
+ * element. Every other element extends this, only overriding update method and whatever else is necessary from commonMethod
+ */
 
 /**
  * Minimal concrete extension of AbstractElement. The <code>update</code> method
@@ -34,8 +30,5 @@ public class SimpleElement extends CommonMethods{
 	public void update() {
 		super.update();
 	}
-
-
-
 
 }

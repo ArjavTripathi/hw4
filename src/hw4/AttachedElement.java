@@ -8,7 +8,7 @@ import api.AbstractElement;
  * element's movement is determined by the movement of the base element, the
  * element always remains a fixed distance away.
  * 
- * @author YOUR NAME HERE
+ * @author Arjava Tripathi
  */
 //TODO: This class must directly or indirectly extend AbstractElement
 public class AttachedElement extends CommonMethods {

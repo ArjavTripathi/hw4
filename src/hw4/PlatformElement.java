@@ -25,11 +25,8 @@ public class PlatformElement extends CommonMethods{
 	 * @param width  object's width
 	 * @param height object's height
 	 */
-	private double min;
-	private double max;
-	private double deltaX;
-	private double deltaY;
 	private ArrayList<AbstractElement> elements;
+
 	private boolean flag;
 
 	public PlatformElement(double x, double y, int width, int height) {
@@ -53,6 +50,7 @@ public class PlatformElement extends CommonMethods{
 		for(AbstractElement ele: e){
 			ele.update();
 		}
+
 	}
 
 	@Override
